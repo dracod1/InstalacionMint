@@ -14,12 +14,9 @@ sudo apt update && sudo apt upgrade -y
 echo "⚡ Instalando Nala (descargas paralelas)..."
 sudo apt install -y nala curl gnupg ca-certificates
 
-echo "🌐 Instalando Brave (descargas paralelas con Nala)..."
+echo "🌐 Repositorio Brave..."
 curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-
-# Configurar Brave como default
-xdg-settings set default-web-browser brave-browser.desktop
 
 echo "🌐 Repositorio Vivaldi..."
 curl -fsSL https://repo.vivaldi.com/stable/linux_signing_key.pub \
@@ -37,6 +34,9 @@ EOF
 echo "⚡ Actualizando índices y instalando TODO de golpe con Nala..."
 sudo nala update
 sudo nala install -y brave-browser vivaldi-stable
+
+# Configurar Brave como default
+xdg-settings set default-web-browser brave-browser.desktop
 
 echo "🔒 Instalando Tailscale..."
 curl -fsSL https://tailscale.com/install.sh | sh
