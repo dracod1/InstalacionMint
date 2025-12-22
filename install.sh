@@ -9,9 +9,8 @@
 #sudo tailscale up  # Solo para autenticar Tailscale
 ##################################################################
 
-echo "🇪🇸 Configurando teclado español..."
-sudo localectl set-keymap es
-sudo localectl set-x11-keymap es "" "" "" "" grp:alt_shift_toggle
+echo "🇪🇸 Configurando teclado español, se borra al reinicio..."
+setxkbmap -layout es -option grp:alt_shift_toggle
 
 echo "🔄 Actualizando sistema con apt..."
 sudo apt update && sudo apt upgrade -y
