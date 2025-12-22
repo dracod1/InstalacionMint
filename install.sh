@@ -1,6 +1,12 @@
 #!/bin/bash
 # Script completo: Nala + Brave + Tailscale + zoxide para Linux Mint
 
+
+###################
+## PARA INSTALAR EN LA CONSOLA: 
+#curl -fsSL https://raw.githubusercontent.com/tuusuario/linux-mint-setup/main/install.sh -o install.sh 
+#chmod +x install.sh && ./install.sh
+##################################################################
 echo "🔄 Actualizando sistema con apt..."
 sudo apt update && sudo apt upgrade -y
 
