@@ -4,7 +4,7 @@
 
 ###################
 ## PARA INSTALAR EN LA CONSOLA: 
-#curl -fsSL https://raw.githubusercontent.com/tuusuario/linux-mint-setup/main/install.sh -o install.sh 
+#curl -fsSL https://raw.githubusercontent.com/dracod1/InstalacionMint/refs/heads/main/install.sh -o install.sh 
 #chmod +x install.sh && ./install.sh
 #sudo tailscale up  # Solo para autenticar Tailscale
 ##################################################################
