@@ -24,7 +24,7 @@ echo "🌐 Brave (con clave GPG corregida)..."
 sudo rm -f /usr/share/keyrings/brave-browser-archive-keyring.gpg
 
 # Descargar clave OFICIAL (fingerprint verificado)
-curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 
 # Verificar fingerprint público (HE4C 82D5)
 gpg --show-keys /usr/share/keyrings/brave-browser-archive-keyring.gpg
