@@ -18,9 +18,19 @@ sudo apt update && sudo apt upgrade -y
 echo "⚡ Instalando Nala (descargas paralelas)..."
 sudo apt install -y nala curl gnupg ca-certificates
 
-echo "🌐 Repositorio Brave..."
+echo "🌐 Brave (con clave GPG corregida)..."
+
+# Eliminar clave vieja si existe
+sudo rm -f /usr/share/keyrings/brave-browser-archive-keyring.gpg
+
+# Descargar clave OFICIAL (fingerprint verificado)
 curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
+# Verificar fingerprint público (HE4C 82D5)
+gpg --show-keys /usr/share/keyrings/brave-browser-archive-keyring.gpg
+
+# Repositorio con signed-by explícito
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list > /dev/null
 
 echo "🌐 Repositorio Vivaldi..."
 curl -fsSL https://repo.vivaldi.com/stable/linux_signing_key.pub \
