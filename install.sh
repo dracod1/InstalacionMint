@@ -48,15 +48,21 @@ curl -fsSL https://tailscale.com/install.sh | sh
 echo "🚀 Instalando zoxide..."
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
-# PATH inmediato + persistente
+# ✅ PATH + Inicialización automática completa
 echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
-export PATH="$HOME/.local/bin:$PATH"
+echo 'eval "$(zoxide init bash)"' >> ~/.bashrc
 
-# Test inmediato
-if command -v zoxide >/dev/null 2>&1; then
-    echo "✅ zoxide v$(zoxide --version) instalado correctamente"
-    echo "💡 Prueba: z Documents (aprende tus directorios)"
+# PATH e init INMEDIATOS para esta sesión
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(zoxide init bash)"
+
+# Test definitivo
+if zoxide --version >/dev/null 2>&1; then
+    echo "✅ zoxide v$(zoxide --version) funcionando perfectamente"
+    echo "💡 Prueba YA: z Documents | z .. | z /home"
+    z --version
 else
-    echo "❌ Error zoxide, reinicia terminal"
+    echo "❌ Reinicia terminal o ejecuta: eval \"\$(zoxide init bash)\""
 fi
+
 
