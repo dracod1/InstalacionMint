@@ -47,9 +47,10 @@ curl -fsSL https://tailscale.com/install.sh | sh
 
 echo "🚀 Instalando zoxide (navegación inteligente)..."
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
-source ~/.bashrc
 
-echo "✅ ¡Instalación completa!"
-echo "💡 Usa: z (en vez de cd) | sudo tailscale up | brave-browser"
-echo "🔍 Verifica: zoxide version"
+# ✅ FIJAR PATH INMEDIATAMENTE (solución al error)
+echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+export PATH="$HOME/.local/bin:$PATH"
+
+# Verificar que funciona YA
+zoxide --version && echo "✅ zoxide OK" || echo "❌ zoxide failed"
