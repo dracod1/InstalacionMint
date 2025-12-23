@@ -45,12 +45,18 @@ xdg-settings set default-web-browser brave-browser.desktop
 echo "🔒 Instalando Tailscale..."
 curl -fsSL https://tailscale.com/install.sh | sh
 
-echo "🚀 Instalando zoxide (navegación inteligente)..."
+echo "🚀 Instalando zoxide..."
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
-# ✅ FIJAR PATH INMEDIATAMENTE (solución al error)
+# PATH inmediato + persistente
 echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
 export PATH="$HOME/.local/bin:$PATH"
 
-# Verificar que funciona YA
-zoxide --version && echo "✅ zoxide OK" || echo "❌ zoxide failed"
+# Test inmediato
+if command -v zoxide >/dev/null 2>&1; then
+    echo "✅ zoxide v$(zoxide --version) instalado correctamente"
+    echo "💡 Prueba: z Documents (aprende tus directorios)"
+else
+    echo "❌ Error zoxide, reinicia terminal"
+fi
+
