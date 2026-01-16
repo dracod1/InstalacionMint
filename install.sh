@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script completo: Nala + Brave + Vivaldi + Tailscale + zoxide para Linux Mint
+# Script completo: Nala + Brave + Vivaldi + Tailscale + zoxide + filezilla para Linux Mint
 
 
 ###################
@@ -30,7 +30,7 @@ echo "deb [signed-by=/usr/share/keyrings/vivaldi.gpg arch=amd64] https://repo.vi
 
 echo "⚡ Actualizando índices y instalando TODO de golpe con Nala..."
 sudo nala update
-sudo nala install -y brave-browser vivaldi-stable
+sudo nala install -y brave-browser vivaldi-stable filezilla
 
 # Configurar Brave como default
 xdg-settings set default-web-browser brave-browser.desktop
