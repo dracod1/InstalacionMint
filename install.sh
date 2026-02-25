@@ -33,7 +33,7 @@ sudo nala update
 sudo nala install -y brave-browser vivaldi-stable filezilla
 
 echo "Borrar aplicaciones que no se usan..."
-sudo nala remove -y thunderbird transmission-gtk
+sudo nala remove -y thunderbird transmission-gtk thunderbird-locale-en thunderbird-locale-es thunderbird-locale-en-us thunderbird-locale-es-es
 
 # Configurar Brave como default
 xdg-settings set default-web-browser brave-browser.desktop
