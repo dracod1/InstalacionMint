@@ -32,6 +32,9 @@ echo "⚡ Actualizando índices y instalando TODO de golpe con Nala..."
 sudo nala update
 sudo nala install -y brave-browser vivaldi-stable filezilla
 
+echo "Borrar aplicaciones que no se usan..."
+sudo nala remove -y thunderbird transmission-gtk
+
 # Configurar Brave como default
 xdg-settings set default-web-browser brave-browser.desktop
 
